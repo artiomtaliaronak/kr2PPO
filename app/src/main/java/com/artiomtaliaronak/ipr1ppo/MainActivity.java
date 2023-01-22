@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -29,9 +30,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void startGame(View view) {
-        User.activeUser.setUsername(editTextUsername.getText().toString());
-        GameView gameView = new GameView(this);
-        setContentView(gameView);
+        if (editTextUsername.getText().toString().length() > 1){
+            User.activeUser.setUsername(editTextUsername.getText().toString());
+            GameView gameView = new GameView(this);
+            setContentView(gameView);
+        } else {
+            Toast.makeText(this, "username too short", Toast.LENGTH_SHORT).show();
+        }
     }
 
     public void openLeaderboard(View view){
