@@ -1,5 +1,6 @@
 package com.artiomtaliaronak.ipr1ppo;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -42,6 +43,7 @@ public class GameView extends View {
     int cooldownTarget = 10;
     int cooldownPlatform = 10;
     private Gyroscope gyroscope;
+    private DatabaseHelper databaseHelper;
 
     public GameView(Context context) {
         super(context);
@@ -88,6 +90,7 @@ public class GameView extends View {
         });
     }
 
+    @SuppressLint("DrawAllocation")
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
@@ -110,8 +113,9 @@ public class GameView extends View {
             ball.setPosition();
             life--;
             if (life <= 0){
+                databaseHelper = new DatabaseHelper(this.context);
+                databaseHelper.updateDatabase(User.activeUser.getId(), User.activeUser.getUsername(), points);
                 Intent intent = new Intent(context, GameOver.class);
-                intent.putExtra("points", points);
                 context.startActivity(intent);
                 ((Activity)context).finish();
             }

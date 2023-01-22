@@ -19,10 +19,25 @@
         android:layout_marginTop="40dp"
         android:layout_marginBottom="40dp"/>
     <Button
+        android:id="@+id/buttonStart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Start"
         android:textSize="32sp"
         android:onClick="startGame" />
+    <EditText
+        android:id="@+id/editTextUsername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Enter your username"
+        android:textSize="32sp"/>
+    <Button
+        android:id="@+id/buttonLeaderboard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Leaderboard"
+        android:textSize="32sp"
+        android:onClick="openLeaderboard" />
+
 
 </LinearLayout>
