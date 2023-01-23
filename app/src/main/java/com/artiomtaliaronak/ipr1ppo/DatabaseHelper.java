@@ -51,7 +51,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public List<User> readData(){
         List<User> list = new ArrayList<>();
-        Cursor c = this.getWritableDatabase().rawQuery("SELECT * FROM " + TABLE_NAME + " ORDER BY " + COLUMN_SCORE + " DESC;", null);
+        Cursor c = this.getWritableDatabase().rawQuery("SELECT * FROM " + TABLE_NAME +
+                " ORDER BY " + COLUMN_SCORE + " DESC;", null);
         while (c.moveToNext()){
             @SuppressLint("Range") int id = c.getInt(c.getColumnIndex(COLUMN_ID));
             @SuppressLint("Range") String username = c.getString(c.getColumnIndex(COLUMN_USERNAME));

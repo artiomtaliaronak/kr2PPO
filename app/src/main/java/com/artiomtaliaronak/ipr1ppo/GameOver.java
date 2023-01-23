@@ -43,7 +43,6 @@ public class GameOver extends AppCompatActivity {
         public UsersAdapter(Context context) {
             super(context, android.R.layout.simple_list_item_1, users);
         }
-
         @NonNull
         @Override
         public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
